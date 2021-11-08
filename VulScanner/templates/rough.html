@@ -1,0 +1,119 @@
+<form method="post" action="">
+<div id="newlink">
+<div>
+<table border=0>
+	<tr>
+		<td> Link URL: </td>
+		<td> <input type="text" name="linkurl[]" value="http://www.satya-weblog.com"> </td>
+	</tr>
+	<tr>
+		<td> Link Description: </td>
+		<td>  <textarea name="linkdesc[]" cols="50" rows="5" ></textarea> </td>
+	</tr>
+</table>
+</div>
+</div>
+	<p>
+		<br>
+		<input type="submit" name="submit1">
+		<input type="reset" name="reset1">
+	</p>
+<p id="addnew">
+	<a href="javascript:new_link()">Add New </a>
+</p>
+</form>
+<!-- Template -->
+<div id="newlinktpl" style="display:none">
+<div>
+<table border=0>
+	<tr>
+		<td> Link URL: </td>
+		<td> <input type="text" name="linkurl[]" value=""> </td>
+	</tr>
+	<tr>
+		<td> Link Description: </td>
+		<td> <textarea name="linkdesc[]" cols="50" rows="5" ></textarea> </td>
+	</tr>
+</table>
+</div>
+</div>
+<form action="threats" method="POST" onsubmit="return validate(this)" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;" >
+                    <div id="newlink">
+					<div>
+					<table border=0>
+					<tr>
+						<th rowspan="2"> Asset: </th>
+						<td>
+							<div class="u-form-group u-form-name">
+							  <label for="name-4b43" class="u-form-control-hidden u-label"></label>
+							  <input type="text" placeholder="Asset name" id="name-4b43" name="asset[]" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+							</div>
+						</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="u-form-email u-form-group">
+								  <label for="email-4b43" class="u-form-control-hidden u-label"></label>
+								  <input type="text" placeholder="Asset version" id="email-4b43" name="version[]" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+								</div>
+							</td>
+						</tr>
+					</table>
+					</div>
+					
+                    <div class="u-align-left u-form-group u-form-submit">
+                      <a href="#" class="u-btn u-btn-submit u-button-style">SUBMIT<br>
+                      </a>
+                      <input type="submit" value="submit" class="u-form-control-hidden">
+                    </div>
+					</div>
+					  <a href="{% static 'javascript:add_feed()' %}" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-2">Add more</a>
+					</div>
+                    <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                    <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                    <input type="hidden" value="" name="recaptchaResponse">
+                  </form>
+<div id="newlinktpl" style="display:none">
+<div>
+<table border=0>
+	<tr>
+		<th rowspan="2"> Asset: </th>
+		<td>
+			<div class="u-form-group u-form-name">
+			  <label for="name-4b43" class="u-form-control-hidden u-label"></label>
+			  <input type="text" placeholder="Asset name" id="name-4b43" name="asset[]" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div class="u-form-email u-form-group">
+			  <label for="email-4b43" class="u-form-control-hidden u-label"></label>
+			  <input type="text" placeholder="Asset version" id="email-4b43" name="version[]" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+</div>				  
+<!-- Template -->
+<div id="newlinktpl" style="display:none">
+<div>
+<table border=0>
+	<tr>
+		<td> Link URL: </td>
+		<td> <input type="text" name="linkurl[]" value=""> </td>
+	</tr>
+	<tr>
+		<td> Link Description: </td>
+		<td> <textarea name="linkdesc[]" cols="50" rows="5" ></textarea> </td>
+	</tr>
+</table>
+</div>
+</div>
+<!-- Template. This whole data will be added directly to working form above -->
+<div id="newlinktpl" style="display:none">
+	<div class="feed">
+	 <input type="text" name="feedurl[]" value=""  size="50">
+	</div>
+</div>
