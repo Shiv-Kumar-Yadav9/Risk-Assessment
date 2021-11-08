@@ -2,8 +2,8 @@ from django.shortcuts import render
 #from django.http import HttpResponse
 
 from django.views.generic import ListView, TemplateView
-from .models import Asset
-from .forms import AssetFormSet
+from .models import Asset, Threat
+from .forms import AssetFormSet, ThreatFormSet
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 
@@ -31,17 +31,40 @@ class assets(TemplateView):
     def post(self, *args, **kwargs):
 
         formset = AssetFormSet(data=self.request.POST)
-
-        # Check if submitted forms are valid
+        
         if formset.is_valid():
             formset.save()
-            return redirect(reverse_lazy("asset_list"))
-
+            print("Control saved")
+            return redirect(reverse_lazy("Vulnerability"))
+        print("Failure")
         return self.render_to_response({'asset_formset': formset})
 
 class AssetListView(ListView):
     model = Asset
-    template_name = "asset_list.html"
+    template_name = "Vulnerability.html"
+
+class threats(TemplateView):
+    template_name = "Threat-Listing.html"
+
+    def get(self, *args, **kwargs):
+        formset = ThreatFormSet(queryset=Threat.objects.none())
+        return self.render_to_response({'threat_formset': formset})
+
+    # Define method to handle POST request
+    def post(self, *args, **kwargs):
+
+        formset = ThreatFormSet(data=self.request.POST)
+
+        # Check if submitted forms are valid
+        if formset.is_valid():
+            formset.save()
+            return redirect(reverse_lazy("Threats"))
+
+        return self.render_to_response({'threat_formset': formset})
+
+class ThreatListView(ListView):
+    model = Threat
+    template_name = "Threats.html"
 
 """class AssetAddView(TemplateView):
     template_name = "add_asset.html"
@@ -58,7 +81,7 @@ class AssetListView(ListView):
         # Check if submitted forms are valid
         if formset.is_valid():
             formset.save()
-            return redirect(reverse_lazy("asset_list"))
+            return redirect(reverse_lazy("Vulnerability"))
 
         return self.render_to_response({'asset_formset': formset})
 """

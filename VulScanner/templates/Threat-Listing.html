@@ -4,17 +4,15 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="​Vulnerability Listing">
+    <meta name="keywords" content="Threat Listing">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Vulnerability Listing</title>
+    <title>Threat Listing</title>
     <link rel="stylesheet" href="{% static 'nicepage.css' %}" media="screen">
-<link rel="stylesheet" href="{% static 'Vulnerability-Listing.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'Threat-Listing.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="{% static 'jquery.js' %}" defer=""></script>
     <script class="u-script" type="text/javascript" src="{% static 'nicepage.js' %}" defer=""></script>
-    <script class="u-script" type="text/javascript" src="{% static 'addMore.js' %}" defer=""></script>
-    
-	<meta name="generator" content="Nicepage 3.29.1, nicepage.com">
+    <meta name="generator" content="Nicepage 3.29.1, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
     
@@ -25,7 +23,7 @@
 		"logo": "{% static 'images/cyberlogo.jpg' %}"
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Vulnerability Listing">
+    <meta property="og:title" content="Threat Listing">
     <meta property="og:type" content="website">
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-e0a3"><div class="u-clearfix u-sheet u-sheet-1">
@@ -39,7 +37,7 @@
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
 </symbol>
 </defs></svg>
-            </a>
+			</a>
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home" style="padding: 10px 20px;">Home</a>
@@ -61,46 +59,42 @@
           </div>
         </nav>
       </div></header>
-    <section class="u-align-center u-clearfix u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-section-1" id="sec-94ca">
+    <section class="u-align-center u-clearfix u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-section-1" id="sec-523f">
       <div class="u-expanded-width u-opacity u-opacity-55 u-palette-1-base u-shape u-shape-rectangle u-shape-1"></div>
       <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
         <div class="u-layout">
           <div class="u-layout-row">
             <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-36 u-white u-layout-cell-1">
               <div class="u-container-layout u-container-layout-1">
-                <h1 class="u-text u-text-1"> Vulnerability Listing<br>
-                </h1>
+                <h1 class="u-text u-text-1">Threat Listing</h1>
                 <div class="u-border-1 u-border-grey-25 u-line u-line-horizontal u-line-1"></div>
                 <div class="u-form u-form-1">
-					
-					
-					
-					<form id="form-container" method="POST" style="padding: 10px;">
+                  
+				  <form id="form-container" method="POST" style="padding: 10px;">
 						{% csrf_token %}
-						{{asset_formset.management_form}}
-						{% for form in asset_formset %}
-						<div class="asset-form">
+						{{threat_formset.management_form}}
+						{% for form in threat_formset %}
+						<div class="threat-form">
 						{{form.as_p}}
 						</div>
 						{% endfor %}
 						
-						<button id="add-form" type="button" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3">Add Another Asset</button>
-						<button type="submit" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3">Create Asset</button>
-						
+						<button id="add-form" type="button" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3">Add Another Threat</button>
+						<button type="submit" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-3">Create Threats</button>
 					</form>
 					<script>
-						let assetForm = document.querySelectorAll(".asset-form")
+						let threatForm = document.querySelectorAll(".threat-form")
 						let container = document.querySelector("#form-container")
 						let addButton = document.querySelector("#add-form")
 						let totalForms = document.querySelector("#id_form-TOTAL_FORMS")
 
-						let formNum = assetForm.length-1
+						let formNum = threatForm.length-1
 						addButton.addEventListener('click', addForm)
 
 						function addForm(e){
 							e.preventDefault()
 
-							let newForm = assetForm[0].cloneNode(true)
+							let newForm = threatForm[0].cloneNode(true)
 							let formRegex = RegExp(`form-(\\d){1}-`,'g')
 
 							formNum++
@@ -110,12 +104,11 @@
 							totalForms.setAttribute('value', `${formNum+1}`)
 						}
 					</script>
-				
+				  
 				  
             </div>	
-			</div>
-			</div>
-			
+			</div>    
+            </div>
             <div class="u-container-style u-image u-layout-cell u-left-cell u-size-24 u-image-1" data-image-width="761" data-image-height="1080">
               <div class="u-container-layout u-container-layout-2"></div>
             </div>
@@ -123,12 +116,10 @@
         </div>
       </div>
     </section>
-	
-			
     
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-8e90"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">TEAM : ATTAC</p>
-      </div></footer>
+      </div></footer>]
   </body>
 </html>
